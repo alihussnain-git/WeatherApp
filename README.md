@@ -2,6 +2,11 @@
 
 A React Native application for displaying weather forecasts for searched cities using the WeatherAPI.com service. This app provides real-time weather information and features service switching and search functionality.
 
+
+https://github.com/user-attachments/assets/ce73db77-d767-4dd4-a47b-c2a91da4b2e5
+
+
+
 ## Prerequisites
 
 Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup)
@@ -57,6 +62,15 @@ yarn test
 yarn lint
 ```
 
+## Task
+
+A react native application where the user can input a location and see the weather.
+    - It should allow the user to toggle between two weather services.
+    - If a location already entered, toggling between services should refresh the UI automatically
+    - What if one of the weather service no longer work and how easy is it to replace it with another service?
+    - What if the UI needs to adapt to the service that the user has selected? (maybe change colors or images)
+
+
 ## Solution
 
 This app is built with React Native and employs the following technologies:
@@ -72,15 +86,16 @@ The app is designed with modularity and scalability in mind. Components and hook
 - React Query: Used to manage data fetching and caching, reducing unnecessary API calls and improving component data management.
 - Modular Components: Ensures code is maintainable and organized, with reusable components for better scalability.
 
-Testing Setup
+## Testing Setup
+
 This project includes a robust setup for unit testing to ensure the reliability and functionality of the application. Below is an explanation of the testing libraries used and their purposes:
 
 Testing Libraries Used
-Jest: Jest is the primary testing framework used in this project. It provides a comprehensive test runner, assertion library, and mocking capabilities. Jest is widely used in the JavaScript ecosystem for its simplicity and powerful features.
+- Jest: Jest is the primary testing framework used in this project. It provides a comprehensive test runner, assertion library, and mocking capabilities. Jest is widely used in the JavaScript ecosystem for its simplicity and powerful features.
 
-@testing-library/react-native: This library is used for testing React Native components. It provides utilities to simulate user interactions and assert the UI behavior. It follows the best practices of testing by focusing on how the user interacts with the app.
+- @testing-library/react-native: This library is used for testing React Native components. It provides utilities to simulate user interactions and assert the UI behavior. It follows the best practices of testing by focusing on how the user interacts with the app.
 
-@testing-library/jest-native: This library extends Jest matchers to provide custom matchers for testing React Native components, making assertions more readable and meaningful.
+- @testing-library/jest-native: This library extends Jest matchers to provide custom matchers for testing React Native components, making assertions more readable and meaningful.
 
 ## Known Limitations
 
