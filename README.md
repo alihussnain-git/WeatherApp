@@ -65,10 +65,11 @@ yarn lint
 ## Task
 
 A react native application where the user can input a location and see the weather.
-    - It should allow the user to toggle between two weather services.
-    - If a location already entered, toggling between services should refresh the UI automatically
-    - What if one of the weather service no longer work and how easy is it to replace it with another service?
-    - What if the UI needs to adapt to the service that the user has selected? (maybe change colors or images)
+
+- It should allow the user to toggle between two weather services.
+- If a location already entered, toggling between services should refresh the UI automatically
+- What if one of the weather service no longer work and how easy is it to replace it with another service?
+- What if the UI needs to adapt to the service that the user has selected? (maybe change colors or images)
 
 
 ## Solution

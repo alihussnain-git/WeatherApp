@@ -7,7 +7,7 @@ import {
   Platform,
   StyleSheet,
 } from 'react-native';
-import {useStyles} from '../contexts/StyleContext';
+import {useServiceStyles} from '../contexts/ServiceStyleContext';
 import {strings} from '../locale/strings';
 import appTheme from '../theme/appTheme';
 import Icon from './Icon';
@@ -23,7 +23,7 @@ const SearchInput: React.FC<Props> = ({
   handleSearch,
   placeHolder,
 }) => {
-  const {styles: appStyles} = useStyles();
+  const {styles: appStyles} = useServiceStyles();
   return (
     <View style={styles.searchBarContainer}>
       <View style={styles.searchInputContainer}>

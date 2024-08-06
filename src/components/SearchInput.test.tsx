@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import SearchInput from './SearchInput';
-import {StyleProvider} from '../contexts/StyleContext';
+import {ServiceStyleProvider} from '../contexts/ServiceStyleContext';
 
 describe('SearchInput', () => {
   it('renders the search input correctly', () => {
@@ -9,13 +9,13 @@ describe('SearchInput', () => {
     const handleSearch = jest.fn();
 
     const {getByPlaceholderText} = render(
-      <StyleProvider>
+      <ServiceStyleProvider>
         <SearchInput
           setSearchQuery={setSearchQuery}
           handleSearch={handleSearch}
           placeHolder="Search..."
         />
-      </StyleProvider>,
+      </ServiceStyleProvider>,
     );
 
     const searchInput = getByPlaceholderText('Search...');
@@ -28,13 +28,13 @@ describe('SearchInput', () => {
     const handleSearch = jest.fn();
 
     const {getByPlaceholderText} = render(
-      <StyleProvider>
+      <ServiceStyleProvider>
         <SearchInput
           setSearchQuery={setSearchQuery}
           handleSearch={handleSearch}
           placeHolder="Search..."
         />
-      </StyleProvider>,
+      </ServiceStyleProvider>,
     );
 
     const searchInput = getByPlaceholderText('Search...');
@@ -49,14 +49,14 @@ describe('SearchInput', () => {
     const handleSearch = jest.fn();
 
     const {getByText} = render(
-      <StyleProvider>
+      <ServiceStyleProvider>
         <SearchInput
           setSearchQuery={setSearchQuery}
           handleSearch={handleSearch}
           placeHolder="Search..."
         />
         ,
-      </StyleProvider>,
+      </ServiceStyleProvider>,
     );
 
     const searchButton = getByText('Search');

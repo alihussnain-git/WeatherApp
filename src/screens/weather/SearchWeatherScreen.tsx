@@ -3,11 +3,12 @@ import {Text, SafeAreaView, ActivityIndicator, View} from 'react-native';
 import {WeatherData} from '../../api/weather/types';
 import ErrorHandling from '../../components/ErrorHandling';
 import SearchInput from '../../components/SearchInput';
-import {useStyles} from '../../contexts/StyleContext';
+import {useServiceStyles} from '../../contexts/ServiceStyleContext';
 import {strings} from '../../locale/strings';
 import {useWeatherForecast} from '../../react-query/useWeatherForecast';
 import {processForecast} from '../../utils/processForecast';
 import TestId from '../../utils/testId';
+import styles from '../styles';
 import ForecastCarousel from './components/ForecastCarousel';
 import ServiceSwitcher from './components/ServiceSwitcher';
 import WeatherCondition from './components/WeatherCondition';
@@ -19,7 +20,7 @@ const defaultCity = 'Berlin';
  * Fetches and displays weather data based on user input.
  */
 const SearchWeatherScreen: React.FC = () => {
-  const {styles, service} = useStyles();
+  const {styles: appStyles, service} = useServiceStyles();
 
   // Ref to hold the search input value to avoid re-renders on text change
   const searchInputRef = useRef<string>();
@@ -36,12 +37,15 @@ const SearchWeatherScreen: React.FC = () => {
 
   // Handler for search button press
   const handleSearch = useCallback(() => {
+    if (!searchInputRef.current?.trim()) {
+      return;
+    }
     setSearchInput(searchInputRef.current);
   }, []);
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <View style={styles.mainContainer}>
+      <View style={[styles.mainContainer, appStyles.backgroundColor]}>
         {/* SearchInput component for user input */}
         <SearchInput
           setSearchQuery={text => {
@@ -55,7 +59,7 @@ const SearchWeatherScreen: React.FC = () => {
           <>
             {/* WeatherCondition component to display current weather condition */}
             <WeatherCondition weather={weather as WeatherData} />
-            <Text style={styles.foreCastText}>
+            <Text style={[styles.foreCastText, appStyles.textColor]}>
               {strings.weatherScreen.fiveHourForecast}
             </Text>
             {/* ForecastCarousel component to display hourly forecast */}

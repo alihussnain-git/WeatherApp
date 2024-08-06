@@ -5,7 +5,7 @@ import SearchWeatherScreen from './SearchWeatherScreen';
 import {mockWeatherData} from '../../mocks/mockWeatherData';
 import {strings} from '../../locale/strings';
 import TestId from '../../utils/testId';
-import {StyleProvider} from '../../contexts/StyleContext';
+import {ServiceStyleProvider} from '../../contexts/ServiceStyleContext';
 
 jest.mock('../../react-query/useWeatherForecast');
 
@@ -22,9 +22,9 @@ describe('SearchWeatherScreen', () => {
 
   it('renders search input and handles search', async () => {
     const {getByPlaceholderText, getByText} = render(
-      <StyleProvider>
+      <ServiceStyleProvider>
         <SearchWeatherScreen />
-      </StyleProvider>,
+      </ServiceStyleProvider>,
     );
 
     const searchInput = getByPlaceholderText(
@@ -51,9 +51,9 @@ describe('SearchWeatherScreen', () => {
     });
 
     const {getByTestId} = render(
-      <StyleProvider>
+      <ServiceStyleProvider>
         <SearchWeatherScreen />
-      </StyleProvider>,
+      </ServiceStyleProvider>,
     );
     const loadingIndicator = getByTestId(TestId.loadingIndicator);
 
@@ -64,9 +64,9 @@ describe('SearchWeatherScreen', () => {
   });
   it('renders weather condition', async () => {
     const {getByText} = render(
-      <StyleProvider>
+      <ServiceStyleProvider>
         <SearchWeatherScreen />
-      </StyleProvider>,
+      </ServiceStyleProvider>,
     );
 
     // Wait for the component to render with weather data
@@ -77,9 +77,9 @@ describe('SearchWeatherScreen', () => {
 
   it('toggles services and updates the UI', async () => {
     const {getByText} = render(
-      <StyleProvider>
+      <ServiceStyleProvider>
         <SearchWeatherScreen />
-      </StyleProvider>,
+      </ServiceStyleProvider>,
     );
 
     // Check initial state with serviceA

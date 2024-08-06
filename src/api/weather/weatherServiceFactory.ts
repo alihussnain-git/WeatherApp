@@ -1,9 +1,8 @@
+import {ServiceName} from '../../contexts/ServiceStyleContext';
 import {WeatherData} from './types';
 
-type WeatherServiceName = 'serviceA' | 'serviceB';
-
 const weatherServiceModules: Record<
-  WeatherServiceName,
+  ServiceName,
   () => Promise<{getWeather: (location: string) => Promise<WeatherData>}>
 > = {
   serviceA: () =>
@@ -17,7 +16,7 @@ const weatherServiceModules: Record<
 };
 
 export async function getWeatherService(
-  serviceName: WeatherServiceName,
+  serviceName: ServiceName,
 ): Promise<{getWeather: (location: string) => Promise<WeatherData>}> {
   const serviceModule = weatherServiceModules[serviceName];
   if (serviceModule) {
